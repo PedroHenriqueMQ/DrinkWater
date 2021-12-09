@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="350.0" spacing="10.0" style="-fx-background-color: #5047FC;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddController">
+   <children>
+      <Label style="-fx-text-fill: white;" text="Horário">
+         <font>
+            <Font name="DejaVu Sans Bold" size="33.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="20.0" />
+         </VBox.margin>
+      </Label>
+      <HBox alignment="CENTER" maxWidth="330.0" spacing="10.0">
+         <children>
+            <TextField fx:id="hours" alignment="CENTER" promptText="Hora" />
+            <Label style="-fx-text-fill: white;" text=":">
+               <font>
+                  <Font name="DejaVu Sans Bold" size="13.0" />
+               </font></Label>
+            <TextField fx:id="minutes" alignment="CENTER" promptText="Minuto">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></TextField>
+         </children>
+      </HBox>
+      <TextField fx:id="mls" alignment="CENTER" maxWidth="330.0" promptText="ML'S" VBox.vgrow="NEVER" />
+      <Button mnemonicParsing="false" onAction="#salvar" style="-fx-background-color: #5D8CF0; -fx-text-fill: white; -fx-border-radius: 15; -fx-border-color: white; -fx-background-radius: 15;" text="adicionar">
+         <font>
+            <Font name="DejaVu Sans Bold" size="13.0" />
+         </font>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin></Button>
+      <Label fx:id="mensagem" style="-fx-text-fill: red;" text="mensagem" visible="false" />
+   </children>
+   <padding>
+      <Insets left="10.0" right="10.0" />
+   </padding>
+</VBox>
