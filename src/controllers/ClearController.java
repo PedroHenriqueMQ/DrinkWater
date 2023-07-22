@@ -5,7 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import main.Main;
+import application.App;
 
 public class ClearController {
     @FXML
@@ -19,14 +19,14 @@ public class ClearController {
         HomeController.stage.close();
     }
     public void confirmar(){
-        if (Main.horarioList.size() < 1) {
+        if (App.horarioList.size() < 1) {
             butaoConfirma.setDisable(true);
             Label mensagem = new Label("Você deve adicionar elementos na lista primeiro.");
             mensagem.setTextFill(Color.RED);
             clearScreen.getChildren().add(mensagem);
         } else {
-            Main.horarioList.clear();
-            Main.listLista.clear();
+            App.horarioList.clear();
+            App.listLista.clear();
             HomeController.lista1.getItems().clear();
             HomeController.stage.close();
         }

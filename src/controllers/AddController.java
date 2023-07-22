@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import main.Main;
+import application.App;
 import models.Horario;
 import models.Lista;
 
@@ -78,10 +78,10 @@ public class AddController {
                             horario.mls = ml;
                             horario.horario = hora;
                             horario.minuto = minuto;
-                            Main.horarioList.add(AddController.horario);
-                            Lista novaLista = new Lista((FXMLLoader.load((Main.class.getResource("/telas/lista.fxml")))));
-                            Main.listLista.add(novaLista);
-                            HomeController.lista1.getItems().add(Main.listLista.get(Main.listLista.size() - 1).listador);
+                            App.horarioList.add(AddController.horario);
+                            Lista novaLista = new Lista((FXMLLoader.load((App.class.getResource("/telas/lista.fxml")))));
+                            App.listLista.add(novaLista);
+                            HomeController.lista1.getItems().add(App.listLista.get(App.listLista.size() - 1).listador);
                             HomeController.stage.close();
                         }
                     }

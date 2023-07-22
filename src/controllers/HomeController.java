@@ -10,7 +10,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import main.Main;
+import application.App;
 
 import java.io.IOException;
 
@@ -33,51 +33,51 @@ public class HomeController {
 
     public void initialize() {
 
-        System.out.println(Main.horarioList.size());
-        System.out.println(Main.listLista.size());
+        System.out.println(App.horarioList.size());
+        System.out.println(App.listLista.size());
 
-        if (Main.horarioList.size() > 0){
-            if (listHorario != null) listHorario.setText(Main.horarioList.get(Main.horarioList.size()-1).horario + " : " + Main.horarioList.get(Main.horarioList.size()-1).minuto);
-            if (listMls != null) listMls.setText(Integer.toString(Integer.parseInt(Main.horarioList.get(Main.listLista.size()).mls)));
+        if (App.horarioList.size() > 0){
+            if (listHorario != null) listHorario.setText(App.horarioList.get(App.horarioList.size()-1).horario + " : " + App.horarioList.get(App.horarioList.size()-1).minuto);
+            if (listMls != null) listMls.setText(Integer.toString(Integer.parseInt(App.horarioList.get(App.listLista.size()).mls)));
         }
-        if (Main.horarioList.size() == 0) meta1 = meta;
+        if (App.horarioList.size() == 0) meta1 = meta;
     }
 
     @FXML
     void abrirConfig() throws IOException {
 
-        Parent configScreen = FXMLLoader.load(Main.class.getResource("/telas/config.fxml"));
+        Parent configScreen = FXMLLoader.load(App.class.getResource("/telas/config.fxml"));
         stage = new Stage();
 
-        stage.initOwner(Main.stage);
+        stage.initOwner(App.stage);
         stage.initModality(Modality.WINDOW_MODAL);
         stage.setScene(new Scene(configScreen));
         stage.showAndWait();
 
-        if(Main.definicao != null) if (!Main.definicao.meta.equals("")) meta.setText("Meta: " + Main.definicao.meta + " mls");
+        if(App.definicao != null) if (!App.definicao.meta.equals("")) meta.setText("Meta: " + App.definicao.meta + " mls");
     }
 
     @FXML
     public void adicionar() throws IOException {
 
-        Parent adicionar = FXMLLoader.load(Main.class.getResource("/telas/adiciona.fxml"));
+        Parent adicionar = FXMLLoader.load(App.class.getResource("/telas/adiciona.fxml"));
         stage = new Stage();
         lista1 = lista;
 
-        stage.initOwner(Main.stage);
+        stage.initOwner(App.stage);
         stage.initModality(Modality.WINDOW_MODAL);
         stage.setScene(new Scene(adicionar));
         stage.showAndWait();
 
         int guardador;
         int somador = 0;
-        if (Main.horarioList.size() > 0) {
-            for (int i = 0; i < Main.horarioList.size(); i++) {
-                guardador = Integer.parseInt(Main.horarioList.get(i).mls);
+        if (App.horarioList.size() > 0) {
+            for (int i = 0; i < App.horarioList.size(); i++) {
+                guardador = Integer.parseInt(App.horarioList.get(i).mls);
                 somador += guardador;
             }
         }
-        if (Main.horarioList.size() > 0) status.setText("Status: " + somador + " mls");
+        if (App.horarioList.size() > 0) status.setText("Status: " + somador + " mls");
         lista.scrollTo(lista.getItems().size() - 1);
 
         }
@@ -86,13 +86,13 @@ public class HomeController {
     @FXML
     void remover() throws IOException {
 
-        Parent remover = FXMLLoader.load(Main.class.getResource("/telas/remove.fxml"));
+        Parent remover = FXMLLoader.load(App.class.getResource("/telas/remove.fxml"));
         stage = new Stage();
         lista1 = lista;
 
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setTitle("AVISO");
-        stage.initOwner(Main.stage);
+        stage.initOwner(App.stage);
         stage.initModality(Modality.WINDOW_MODAL);
         stage.setScene(new Scene(remover));
         stage.showAndWait();
@@ -100,29 +100,29 @@ public class HomeController {
         int guardador;
         int somador = 0;
         if (lista.getItems().size() > 0) {
-            for (int i = 0; i < Main.horarioList.size(); i++) {
-                guardador = Integer.parseInt(Main.horarioList.get(i).mls);
+            for (int i = 0; i < App.horarioList.size(); i++) {
+                guardador = Integer.parseInt(App.horarioList.get(i).mls);
                 somador += guardador;
             }
         }
 
-        if (Main.horarioList.size() == 0) status.setText("Status: XXX");
-        if (Main.horarioList.size() > 0) status.setText("Status: " + somador + " mls");
+        if (App.horarioList.size() == 0) status.setText("Status: XXX");
+        if (App.horarioList.size() > 0) status.setText("Status: " + somador + " mls");
 
     }
     @FXML
     void limpar() throws IOException {
-        Parent remover = FXMLLoader.load(Main.class.getResource("/telas/clear.fxml"));
+        Parent remover = FXMLLoader.load(App.class.getResource("/telas/clear.fxml"));
         stage = new Stage();
         lista1 = lista;
 
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setTitle("AVISO");
-        stage.initOwner(Main.stage);
+        stage.initOwner(App.stage);
         stage.initModality(Modality.WINDOW_MODAL);
         stage.setScene(new Scene(remover));
         stage.showAndWait();
 
-        if (Main.horarioList.size() == 0) status.setText("Status: XXX");
+        if (App.horarioList.size() == 0) status.setText("Status: XXX");
     }
 }

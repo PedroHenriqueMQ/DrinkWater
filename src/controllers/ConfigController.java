@@ -3,7 +3,7 @@ package controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import main.Main;
+import application.App;
 import models.Definicao;
 
 public class ConfigController {
@@ -18,7 +18,7 @@ public class ConfigController {
 
     public void salvar(){
         Definicao definidor = new Definicao(peso.getText() ,idade.getText(), "");
-        Main.definicao = (new Definicao("","", ""));
+        App.definicao = (new Definicao("","", ""));
         String getPeso = definidor.peso;
         String getIdade = definidor.idade;
         char[] pesoArray = getPeso.toCharArray();
@@ -53,19 +53,19 @@ public class ConfigController {
                 if (verificadorIdade & verificadorPeso) {
                     if (idadeNumber < 18) {
                         int calculo = pesoNumber * 40;
-                        Main.definicao.meta = String.valueOf(calculo);
+                        App.definicao.meta = String.valueOf(calculo);
                     } else if (idadeNumber < 56) {
                         int calculo = pesoNumber * 35;
-                        Main.definicao.meta = String.valueOf(calculo);
+                        App.definicao.meta = String.valueOf(calculo);
                     } else if (idadeNumber < 66) {
                         int calculo = pesoNumber * 30;
-                        Main.definicao.meta = String.valueOf(calculo);
+                        App.definicao.meta = String.valueOf(calculo);
                     } else {
                         int calculo = pesoNumber * 25;
-                        Main.definicao.meta = String.valueOf(calculo);
+                        App.definicao.meta = String.valueOf(calculo);
                     }
-                    Main.definicao.peso = String.valueOf(pesoNumber);
-                    Main.definicao.idade = String.valueOf(idadeNumber);
+                    App.definicao.peso = String.valueOf(pesoNumber);
+                    App.definicao.idade = String.valueOf(idadeNumber);
                     HomeController.stage.close();
                 }
             }
